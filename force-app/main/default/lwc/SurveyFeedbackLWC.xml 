@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>47.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+            <property name="surveyId" type="String" default=""/>
+        </targetConfig>
+    </targetConfigs>
+    <masterDefaults>
+        <property name="surveyId" type="String"/>
+    </masterDefaults>
+    <styles>
+        <style>/resource/SLDS213/assets/styles/salesforce-lightning-design-system.min.css</style>
+    </styles>
+    <aura:component>
+        <aura:attribute name="surveyId" type="String" required="true"/>
+        <c:SurveyFeedbackLWC surveyId="{!v.surveyId}"/>
+    </aura:component>
+</LightningComponentBundle>
